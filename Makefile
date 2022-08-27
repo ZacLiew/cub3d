@@ -6,15 +6,16 @@
 #    By: zhliew <zhliew@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/09 14:43:43 by zhliew            #+#    #+#              #
-#    Updated: 2022/08/11 16:13:06 by zhliew           ###   ########.fr        #
+#    Updated: 2022/08/27 10:31:24 by zhliew           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cub3d
 
-SRCS =	main.c color.c image_utils.c
+SRCS =	main.c src/color.c src/image_utils.c src/floor_ceiling.c src/game_loop.c\
+		src/get_wall.c src/key_event.c src/minimap.c src/mouse_event.c src/raycasting.c
 
-INCLUDES = cub3d.h
+INCLUDES = includes/cub3d.h
 
 INC=/usr/include
 
