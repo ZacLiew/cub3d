@@ -6,7 +6,7 @@
 /*   By: zhliew <zhliew@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 14:42:16 by zhliew            #+#    #+#             */
-/*   Updated: 2022/08/27 10:54:41 by zhliew           ###   ########.fr       */
+/*   Updated: 2022/08/27 11:14:48 by zhliew           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 # define ROTATE_ANGLE 0.08
 # define TEXTURE_FLOOR 1
 
-typedef struct	s_resize
+typedef struct s_resize
 {
 	double	step_x;
 	double	wall_x_pos;
@@ -41,7 +41,7 @@ typedef struct	s_resize
 	int		tex_y;
 }				t_resize;
 
-typedef struct	s_player
+typedef struct s_player
 {
 	double	x;
 	double	y;
@@ -51,43 +51,43 @@ typedef struct	s_player
 	double	plane_y;
 }				t_player;
 
-typedef struct	s_cam
+typedef struct s_cam
 {
-	double camera_x;
-	double ray_dir_x;
-	double ray_dir_y;
+	double	camera_x;
+	double	ray_dir_x;
+	double	ray_dir_y;
 	int		map_x;
-	int 	map_y;
+	int		map_y;
 	double	side_dist_x;
 	double	side_dist_y;
 	double	delta_dist_x;
 	double	delta_dist_y;
 	double	perp_wall_dist;
 	double	wall_dist;
-	int hit;
-	int step_x;
-	int step_y;
-	int side;
-	int x;
+	int		hit;
+	int		step_x;
+	int		step_y;
+	int		side;
+	int		x;
 }				t_cam;
 
-typedef struct	s_map
+typedef struct s_map
 {
 	char	**board;
 	int		row;
 	int		col;
 }				t_map;
 
-typedef struct	s_wall
+typedef struct s_wall
 {
-	int height;
-	int start;
-	int end;
+	int	height;
+	int	start;
+	int	end;
 }				t_wall;
 
-typedef struct	s_image
+typedef struct s_image
 {
-	int 	width;
+	int		width;
 	int		height;
 	int		bpp;
 	int		stride;
@@ -98,34 +98,34 @@ typedef struct	s_image
 	char	*img_data;
 }				t_image;
 
-typedef struct	s_color
+typedef struct s_color
 {
-	int red;
-	int blue;
-	int green;
-	int opacity;
+	int	red;
+	int	blue;
+	int	green;
+	int	opacity;
 }				t_color;
 
-typedef struct	s_mlx
+typedef struct s_mlx
 {
-	void *mlx;
-	void *win;
-	t_map map;
-	t_image north;
-	t_image west;
-	t_image south;
-	t_image	east;
-	t_image ground;
-	t_image door;
-	t_image hud;
-	t_image cross;
-	t_image muzzle;
-	t_player player;
-	t_color color_ceiling;
-	t_color color_floor;
+	void		*mlx;
+	void		*win;
+	t_map		map;
+	t_image		north;
+	t_image		west;
+	t_image		south;
+	t_image		east;
+	t_image		ground;
+	t_image		door;
+	t_image		hud;
+	t_image		cross;
+	t_image		muzzle;
+	t_player	player;
+	t_color		color_ceiling;
+	t_color		color_floor;
 }				t_mlx;
 
-typedef struct	s_floor
+typedef struct s_floor
 {
 	double		ray_dir_x0;
 	double		ray_dir_y0;
@@ -142,7 +142,7 @@ void	insert_img_pixel_color(t_image *img, t_color color);
 void	set_img_opacity(t_image *img, int opacity);
 t_color	get_img_pixel_color(t_image *img, int x, int y);
 t_image	get_xpm_img(t_mlx *mlx, char *file);
-void	exit_game();
+void	exit_game(void);
 void	rotate(t_mlx *mlx, double angle);
 int		key_pressed(int keycode, t_mlx *mlx);
 int		mouse_move(int x, int y, t_mlx *mlx);

@@ -6,7 +6,7 @@
 /*   By: zhliew <zhliew@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 16:12:20 by zhliew            #+#    #+#             */
-/*   Updated: 2022/08/27 10:40:26 by zhliew           ###   ########.fr       */
+/*   Updated: 2022/08/27 11:23:35 by zhliew           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	set_img_opacity(t_image *img, int opacity)
 
 t_color	get_img_pixel_color(t_image *img, int x, int y)
 {
-	int		i;
+	long		i;
 	t_color	color;
 
 	i = (x * 4) + (y * img->stride);
