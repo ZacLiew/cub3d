@@ -6,7 +6,7 @@
 /*   By: zhliew <zhliew@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 09:34:53 by zhliew            #+#    #+#             */
-/*   Updated: 2022/08/29 14:25:23 by zhliew           ###   ########.fr       */
+/*   Updated: 2022/08/29 15:13:05 by zhliew           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,11 @@ static void	get_minimap(t_mlx *mlx, t_image *img, int row)
 		tmp_x -= (int)(img->width / 11);
 		col++;
 		if (col >= mlx->map.col || row >= mlx->map.row)
-			return ;
+		{
+			color = declare_color(0, 0, 0, 100);
+			insert_img_pixel_color(img, color);
+			return;
+		}
 	}
 	color = return_minimap_color(mlx, img, row, col);
 	insert_img_pixel_color(img, color);
