@@ -6,7 +6,7 @@
 /*   By: leu-lee <leu-lee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 14:42:16 by zhliew            #+#    #+#             */
-/*   Updated: 2022/09/03 15:51:18 by leu-lee          ###   ########.fr       */
+/*   Updated: 2022/09/03 16:36:17 by leu-lee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -164,6 +164,7 @@ int		game_loop(t_mlx *mlx);
 void	read_file(t_mlx *mlx, char **argv);
 int		get_textures(t_mlx *mlx, int fd);
 int		check_map_valid(t_mlx *mlx);
+void	player_direction(t_mlx *mlx, char c);
 
 void	call_error(char *msg);
 void	free_str_array(char **str);

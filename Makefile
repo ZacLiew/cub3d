@@ -6,7 +6,7 @@
 #    By: leu-lee <leu-lee@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/07 13:17:07 by leu-lee           #+#    #+#              #
-#    Updated: 2022/09/03 16:03:25 by leu-lee          ###   ########.fr        #
+#    Updated: 2022/09/03 16:36:25 by leu-lee          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,8 +23,9 @@ OBJS_DIR	= ./obj
 GNL_DIR		= ./get_next_line
 
 SRCS		= color.c image_utils.c floor_ceiling.c game_loop.c \
-		get_wall.c key_event.c minimap.c mouse_event.c raycasting.c \
-		read_file.c check_map_valid.c get_textures.c parsing_utils.c \
+				get_wall.c key_event.c minimap.c mouse_event.c raycasting.c \
+				read_file.c check_map_valid.c get_textures.c parsing_utils.c \
+				player_direction.c \
 				
 
 OBJS		= $(SRCS:%.c=$(OBJS_DIR)/%.o)

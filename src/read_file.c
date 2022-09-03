@@ -6,7 +6,7 @@
 /*   By: leu-lee <leu-lee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 17:54:22 by leu-lee           #+#    #+#             */
-/*   Updated: 2022/09/03 15:20:38 by leu-lee          ###   ########.fr       */
+/*   Updated: 2022/09/03 16:38:05 by leu-lee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void	get_map_size(t_mlx *mlx, char **argv, int skip)
 			break ;
 		mlx->map.col++;
 		if (mlx->map.row < (int)ft_strlen(line))
-			mlx->map.row= ft_strlen(line);
+			mlx->map.row = ft_strlen(line);
 		free(line);
 	}
 	mlx->map.col -= skip;

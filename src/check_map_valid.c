@@ -6,13 +6,13 @@
 /*   By: leu-lee <leu-lee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 13:00:59 by leu-lee           #+#    #+#             */
-/*   Updated: 2022/09/03 15:52:44 by leu-lee          ###   ########.fr       */
+/*   Updated: 2022/09/03 16:57:17 by leu-lee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	check_char_valid(char c)
+int	check_char_valid(t_mlx *mlx, char c, int i, int y)
 {
 	static int	dir;
 
@@ -21,7 +21,12 @@ int	check_char_valid(char c)
 		&& c != 'S' && c != 'E' && c != ' ')
 		call_error("Error: Not a valid char\n");
 	if (c == 'N' || c == 'W' || c == 'S' || c == 'E')
+	{
+		mlx->player.x = (double)i + 0.5;
+		mlx->player.y = (double)y + 0.5;
+		player_direction(mlx, c);
 		dir++;
+	}
 	return (dir);
 }
 
@@ -29,15 +34,19 @@ void	check_inner_wall(t_mlx *mlx, int i, int y)
 {
 	if ((y - 1 >= 0) && (i - 1 >= 0))
 	{
-		if (y != (mlx->map.row - 1))
+		if (y != (mlx->map.col - 1))
 		{
-			if ((mlx->map.board[y + 1][i] != '1') && (mlx->map.board[y + 1][i] != ' '))
+			if ((mlx->map.board[y + 1][i] != '1')
+				&& (mlx->map.board[y + 1][i] != ' '))
 				call_error("Error: Map not valid (Floor next to space)\n");
 		}
-		if (((mlx->map.board[y][i + 1] != '1') && (mlx->map.board[y][i + 1] != ' ') &&
-			(mlx->map.board[y][i + 1] != '\0')) ||
-			((mlx->map.board[y][i - 1] != '1') && (mlx->map.board[y][i - 1] != ' ')) ||
-			((mlx->map.board[y - 1][i] != '1') && (mlx->map.board[y - 1][i] != ' ')))
+		if (((mlx->map.board[y][i + 1] != '1')
+			&& (mlx->map.board[y][i + 1] != ' ')
+			&& (mlx->map.board[y][i + 1] != '\0')) ||
+			((mlx->map.board[y][i - 1] != '1')
+			&& (mlx->map.board[y][i - 1] != ' ')) ||
+			((mlx->map.board[y - 1][i] != '1')
+			&& (mlx->map.board[y - 1][i] != ' ')))
 			call_error("Error: Map not valid (Floor next to space)\n");
 	}
 }
@@ -87,7 +96,7 @@ int	check_map_valid(t_mlx *mlx)
 		i = 0;
 		while (mlx->map.board[y][i])
 		{
-			ret = check_char_valid(mlx->map.board[y][i]);
+			ret = check_char_valid(mlx, mlx->map.board[y][i], i, y);
 			if (mlx->map.board[y][i] == ' ')
 				check_inner_wall(mlx, i, y);
 			i++;

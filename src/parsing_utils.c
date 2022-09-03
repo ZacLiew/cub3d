@@ -6,7 +6,7 @@
 /*   By: leu-lee <leu-lee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 17:00:38 by leu-lee           #+#    #+#             */
-/*   Updated: 2022/09/03 15:33:34 by leu-lee          ###   ########.fr       */
+/*   Updated: 2022/09/03 16:50:25 by leu-lee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	print_map(t_mlx *mlx)
 
 	i = 0;
 	printf("|Printing map|\n");
-	printf("data->map_h: %d\n", mlx->map.row);
+	printf("data->map_h: %d\n", mlx->map.col);
 	while (mlx->map.board[i] != NULL)
 	{
 		printf("|%s|\n", mlx->map.board[i]);

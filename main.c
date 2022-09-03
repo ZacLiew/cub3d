@@ -6,7 +6,7 @@
 /*   By: leu-lee <leu-lee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 14:41:05 by zhliew            #+#    #+#             */
-/*   Updated: 2022/09/03 16:02:01 by leu-lee          ###   ########.fr       */
+/*   Updated: 2022/09/03 16:49:32 by leu-lee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,34 +23,6 @@ static int	hook_close(t_mlx *mlx)
 	(void)mlx;
 	exit_game();
 	return (0);
-}
-
-void	player_direction(t_mlx *mlx, char c)
-{
-	mlx->player.dir_x = 0;
-	mlx->player.dir_y = 0;
-	mlx->player.plane_x = 0;
-	mlx->player.plane_y = 0;
-	if (c == 'N')
-	{
-		mlx->player.dir_y = -1;
-		mlx->player.plane_x = 0.66;
-	}
-	else if (c == 'S')
-	{
-		mlx->player.dir_y = 1;
-		mlx->player.plane_x = -0.66;
-	}
-	else if (c == 'W')
-	{
-		mlx->player.dir_x = 1;
-		mlx->player.plane_y = 0.66;
-	}
-	else if (c == 'E')
-	{
-		mlx->player.dir_x = -1;
-		mlx->player.plane_y = -0.66;
-	}
 }
 
 int	main(int argc, char **argv)
@@ -79,13 +51,13 @@ int	main(int argc, char **argv)
 	// 	y++;
 	// 	tmp++;
 	// }
-	read_file(&mlx, argv); // reads and print map
 	// mlx.map.row = 20;
 	// mlx.map.col = 10;
-	mlx.player.x = 4.5;
-	mlx.player.y = 4.5;
-	player_direction(&mlx, 'N');
+	// mlx.player.x = 4.5;
+	// mlx.player.y = 4.5;
+	// player_direction(&mlx, 'N');
 	mlx.mlx = mlx_init();
+	read_file(&mlx, argv); // reads and print map
 	mlx.win = mlx_new_window(mlx.mlx, WIN_WIDTH, WIN_HEIGHT, "CUB3D");
 	// get_textures and colors
 	// mlx.north = get_xpm_img(&mlx, "texture/1.xpm");

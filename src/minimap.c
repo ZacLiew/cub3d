@@ -6,7 +6,7 @@
 /*   By: leu-lee <leu-lee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 09:34:53 by zhliew            #+#    #+#             */
-/*   Updated: 2022/09/03 15:49:41 by leu-lee          ###   ########.fr       */
+/*   Updated: 2022/09/03 16:37:55 by leu-lee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static void	get_minimap(t_mlx *mlx, t_image *img, int row)
 		{
 			color = declare_color(0, 0, 0, 100);
 			insert_img_pixel_color(img, color);
-			return;
+			return ;
 		}
 	}
 	color = return_minimap_color(mlx, img, row, col);
