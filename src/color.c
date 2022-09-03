@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   color.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zhliew <zhliew@student.42.fr>              +#+  +:+       +#+        */
+/*   By: leu-lee <leu-lee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 15:49:13 by zhliew            #+#    #+#             */
-/*   Updated: 2022/08/27 10:32:29 by zhliew           ###   ########.fr       */
+/*   Updated: 2022/09/03 15:49:45 by leu-lee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "cub3d.h"
 
 t_color	declare_color(int red, int green, int blue, int opacity)
 {

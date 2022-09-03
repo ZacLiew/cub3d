@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   image_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zhliew <zhliew@student.42.fr>              +#+  +:+       +#+        */
+/*   By: leu-lee <leu-lee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 16:12:20 by zhliew            #+#    #+#             */
-/*   Updated: 2022/08/27 12:57:48 by zhliew           ###   ########.fr       */
+/*   Updated: 2022/09/03 15:49:41 by leu-lee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "cub3d.h"
 
 void	create_empty_img(t_image *img, t_mlx *mlx, int width, int height)
 {

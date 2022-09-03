@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   minimap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zhliew <zhliew@student.42.fr>              +#+  +:+       +#+        */
+/*   By: leu-lee <leu-lee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 09:34:53 by zhliew            #+#    #+#             */
-/*   Updated: 2022/08/29 15:13:05 by zhliew           ###   ########.fr       */
+/*   Updated: 2022/09/03 15:49:41 by leu-lee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "cub3d.h"
 
 static t_color	return_minimap_color(t_mlx *mlx, t_image *img, int row, int col)
 {

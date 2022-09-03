@@ -3,37 +3,79 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: zhliew <zhliew@student.42.fr>              +#+  +:+       +#+         #
+#    By: leu-lee <leu-lee@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/08/09 14:43:43 by zhliew            #+#    #+#              #
-#    Updated: 2022/08/27 12:57:57 by zhliew           ###   ########.fr        #
+#    Created: 2021/06/07 13:17:07 by leu-lee           #+#    #+#              #
+#    Updated: 2022/09/03 16:03:25 by leu-lee          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = cub3d
+NAME		= cub3d
 
-SRCS =	main.c src/color.c src/image_utils.c src/floor_ceiling.c src/game_loop.c\
-		src/get_wall.c src/key_event.c src/minimap.c src/mouse_event.c src/raycasting.c
+CC			= gcc -Wall -Wextra -Werror -D BUFFER_SIZE=1
+CCD			= gcc -Wall -Wextra -Werror -fsanitize=address -g3
+MACMLX 		= -framework OpenGl -framework Appkit -lm
 
-INCLUDES = includes/cub3d.h
+RM			= rm -rf
 
-INC=/usr/include
+SRCS_DIR	= ./src
+OBJS_DIR	= ./obj
+GNL_DIR		= ./get_next_line
 
-INCLIB=$(INC)/usr/lib
+SRCS		= color.c image_utils.c floor_ceiling.c game_loop.c \
+		get_wall.c key_event.c minimap.c mouse_event.c raycasting.c \
+		read_file.c check_map_valid.c get_textures.c parsing_utils.c \
+				
 
-LFLAGS =  -Lmlx -lmlx -framework OpenGL -framework AppKit -lm
+OBJS		= $(SRCS:%.c=$(OBJS_DIR)/%.o)
 
-all: $(SRCS) $(INCLUDES) 
-	@make -C mlx
-	@gcc -Wall -Wextra -Werror -o $(NAME) $(SRCS) $(LFLAGS) mlx/libmlx.a
+SRCS_GNL	= get_next_line.c get_next_line_utils.c
+OBJS_GNL	= $(SRCS_GNL:%.c=$(OBJS_DIR)/%.o)
+
+LIB			= -lmlx -Lmlx -Llibft -lft
+INCLUDES	= -Imlx -Iincludes -Ilibft -Iget_next_line
+
+all: $(NAME)
+
+$(NAME): $(OBJS) $(OBJS_GNL) main.c libft/libft.a
+		@$(CCD) main.c $(OBJS) $(OBJS_GNL) $(INCLUDES) $(LIB) $(MACMLX) -o $@
+		@echo "$(GREEN)Compiled $@ successfully $(RESET)"
+	
+libft/libft.a:
+		@make bonus -C libft
+
+$(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c
+		@mkdir -p $(OBJS_DIR)
+		@$(CC) $(INCLUDES) -c $< -o $@
+
+$(OBJS_DIR)/%.o: $(GNL_DIR)/%.c
+	@mkdir -p $(OBJS_DIR)
+	@$(CC) $(INCLUDES) -c $< -o $@
+
+test:
+		make && "./cub3d ./maps/map2.cub"
 
 clean:
-	@/bin/rm -f $(OBJ)
+	@$(RM) $(OBJS_DIR)
+	@echo "$(RED)Removed $(NAME) .obj$(RESET)"
 
 fclean: clean
-	@make -C mlx/ clean
-	@/bin/rm -f $(NAME)
+	@$(RM) $(OBJS_DIR)
+	@make fclean -C libft
+	@echo "$(RED)Removed $(NAME)$(RESET)"
 
 re: fclean all
 
-PHONY: all clean fclean re
+.PHONY: all run clean fclean
+
+# Colors are great!
+# Formats are greater!
+# https://misc.flogisoft.com/bash/tip_colors_and_formatting
+RED		= \033[31m
+GREEN	= \033[32m
+YELLOW	= \033[033m
+BLUE	= \033[034m
+PINK	= \033[035m
+TEAL	= \033[036m
+WHITE	= \033[037m
+RESET	= \033[0m # No Color

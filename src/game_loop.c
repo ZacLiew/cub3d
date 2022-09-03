@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zhliew <zhliew@student.42.fr>              +#+  +:+       +#+        */
+/*   By: leu-lee <leu-lee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 10:23:59 by zhliew            #+#    #+#             */
-/*   Updated: 2022/08/27 13:40:27 by zhliew           ###   ########.fr       */
+/*   Updated: 2022/09/03 15:49:41 by leu-lee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "cub3d.h"
 
 static void	display_string_for_door(t_mlx *mlx)
 {

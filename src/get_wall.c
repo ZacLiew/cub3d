@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_wall.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zhliew <zhliew@student.42.fr>              +#+  +:+       +#+        */
+/*   By: leu-lee <leu-lee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 10:03:33 by zhliew            #+#    #+#             */
-/*   Updated: 2022/08/27 13:38:08 by zhliew           ###   ########.fr       */
+/*   Updated: 2022/09/03 15:49:41 by leu-lee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "cub3d.h"
 
 static t_image	get_wall_img(t_mlx *mlx, t_cam *cam)
 {

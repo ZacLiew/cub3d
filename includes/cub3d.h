@@ -3,20 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zhliew <zhliew@student.42.fr>              +#+  +:+       +#+        */
+/*   By: leu-lee <leu-lee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 14:42:16 by zhliew            #+#    #+#             */
-/*   Updated: 2022/08/27 13:39:29 by zhliew           ###   ########.fr       */
+/*   Updated: 2022/09/03 15:51:18 by leu-lee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
-# include <stdio.h>
-# include <stdlib.h>
 # include <fcntl.h>
+# include <stdbool.h>
+# include <stdio.h>
+# include <string.h>
+# include <stdlib.h>
 # include <unistd.h>
 # include <math.h>
+# include <sys/stat.h>
+# include "get_next_line.h"
+# include "libft.h"
+# include "styling.h"
 # include "../mlx/mlx.h"
 # define WIN_WIDTH 1200
 # define WIN_HEIGHT 1000
@@ -153,5 +159,15 @@ void	set_up_floor_ceiling(t_mlx *mlx, t_image *img, int y);
 void	set_up_wall_raycasting(t_mlx *mlx, t_image *img, t_image *door);
 void	get_wall_texture(t_wall *wall, t_image *img, t_cam *cam, t_mlx *mlx);
 int		game_loop(t_mlx *mlx);
+
+/* Parsing files */
+void	read_file(t_mlx *mlx, char **argv);
+int		get_textures(t_mlx *mlx, int fd);
+int		check_map_valid(t_mlx *mlx);
+
+void	call_error(char *msg);
+void	free_str_array(char **str);
+void	comma_to_space(char *line);
+void	print_map(t_mlx *mlx);
 
 #endif

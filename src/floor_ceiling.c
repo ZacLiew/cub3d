@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   floor_ceiling.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zhliew <zhliew@student.42.fr>              +#+  +:+       +#+        */
+/*   By: leu-lee <leu-lee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 09:54:48 by zhliew            #+#    #+#             */
-/*   Updated: 2022/08/27 13:09:29 by zhliew           ###   ########.fr       */
+/*   Updated: 2022/09/03 15:49:41 by leu-lee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "cub3d.h"
 
 void	default_floor_ceiling(t_mlx *mlx, t_image *img)
 {
