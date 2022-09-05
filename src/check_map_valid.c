@@ -6,7 +6,7 @@
 /*   By: leu-lee <leu-lee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 13:00:59 by leu-lee           #+#    #+#             */
-/*   Updated: 2022/09/05 08:53:01 by leu-lee          ###   ########.fr       */
+/*   Updated: 2022/09/05 15:25:33 by leu-lee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	check_inner_wall(t_mlx *mlx, int i, int y)
 {
 	if ((y - 1 >= 0) && (i - 1 >= 0))
 	{
-		if (y != (mlx->map.col - 1))
+		if (y != (mlx->map.row - 1))
 		{
 			if ((mlx->map.board[y + 1][i] != '1')
 				&& (mlx->map.board[y + 1][i] != ' '))
@@ -71,7 +71,7 @@ int	check_vertical_wall(t_mlx *mlx)
 	int	len;
 
 	i = 0;
-	while (i < mlx->map.col)
+	while (i < mlx->map.row)
 	{
 		len = ft_strlen(mlx->map.board[i]);
 		if (*(mlx->map.board)[0] != '1' || *(mlx->map.board)[0] != ' ')
@@ -104,7 +104,7 @@ int	check_map_valid(t_mlx *mlx)
 		y++;
 	}
 	check_horizontal_wall(mlx->map.board[0]);
-	check_horizontal_wall(mlx->map.board[mlx->map.col - 1]);
+	check_horizontal_wall(mlx->map.board[mlx->map.row - 1]);
 	check_vertical_wall(mlx);
 	return (ret);
 }

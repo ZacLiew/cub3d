@@ -6,7 +6,7 @@
 /*   By: leu-lee <leu-lee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 14:41:05 by zhliew            #+#    #+#             */
-/*   Updated: 2022/09/05 14:21:05 by leu-lee          ###   ########.fr       */
+/*   Updated: 2022/09/05 15:22:00 by leu-lee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,21 +25,26 @@ static int	hook_close(t_mlx *mlx)
 	return (0);
 }
 
+static void	init_cub3d(t_mlx *mlx)
+{
+	mlx->map.col = 0;
+	mlx->map.row = 0;
+	mlx->ground = get_xpm_img(mlx, "texture/ground.xpm");
+	mlx->door = get_xpm_img(mlx, "texture/door.xpm");
+	mlx->hud = get_xpm_img(mlx, "texture/hud.xpm");
+	mlx->cross = get_xpm_img(mlx, "texture/crosshair.xpm");
+	mlx->muzzle = get_xpm_img(mlx, "texture/muzzle.xpm");
+}
+
 int	main(int argc, char **argv)
 {
 	t_mlx	mlx;
 
 	(void)argc;
 	mlx.mlx = mlx_init();
-	mlx.map.col = 0;
-	mlx.map.row = 0;
+	init_cub3d(&mlx);
 	read_file(&mlx, argv);
 	mlx.win = mlx_new_window(mlx.mlx, WIN_WIDTH, WIN_HEIGHT, "CUB3D");
-	mlx.ground = get_xpm_img(&mlx, "texture/ground.xpm");
-	mlx.door = get_xpm_img(&mlx, "texture/door.xpm");
-	mlx.hud = get_xpm_img(&mlx, "texture/hud.xpm");
-	mlx.cross = get_xpm_img(&mlx, "texture/crosshair.xpm");
-	mlx.muzzle = get_xpm_img(&mlx, "texture/muzzle.xpm");
 	system("afplay sound/back.mp3&");
 	mlx_mouse_hide();
 	mlx_hook(mlx.win, 2, 0, key_pressed, &mlx);
