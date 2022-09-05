@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_direction.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leu-lee <leu-lee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: zhliew <zhliew@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 16:35:45 by leu-lee           #+#    #+#             */
-/*   Updated: 2022/09/03 16:36:52 by leu-lee          ###   ########.fr       */
+/*   Updated: 2022/09/05 16:20:24 by zhliew           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,12 @@ void	player_direction(t_mlx *mlx, char c)
 	}
 	else if (c == 'W')
 	{
-		mlx->player.dir_x = 1;
-		mlx->player.plane_y = 0.66;
+		mlx->player.dir_x = -1;
+		mlx->player.plane_y = -0.66;
 	}
 	else if (c == 'E')
 	{
-		mlx->player.dir_x = -1;
-		mlx->player.plane_y = -0.66;
+		mlx->player.dir_x = 1;
+		mlx->player.plane_y = 0.66;
 	}
 }

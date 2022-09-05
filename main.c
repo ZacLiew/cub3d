@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leu-lee <leu-lee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: zhliew <zhliew@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 14:41:05 by zhliew            #+#    #+#             */
-/*   Updated: 2022/09/05 16:15:02 by leu-lee          ###   ########.fr       */
+/*   Updated: 2022/09/05 16:21:41 by zhliew           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int	main(int argc, char **argv)
 	init_cub3d(&mlx);
 	read_file(&mlx, argv);
 	mlx.win = mlx_new_window(mlx.mlx, WIN_WIDTH, WIN_HEIGHT, "CUB3D");
+	mlx.map.board[(int)mlx.player.y][(int)mlx.player.x] = '0';
 	system("afplay sound/back.mp3&");
 	mlx_mouse_hide();
 	mlx_hook(mlx.win, 2, 0, key_pressed, &mlx);

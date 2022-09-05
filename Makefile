@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: leu-lee <leu-lee@student.42.fr>            +#+  +:+       +#+         #
+#    By: zhliew <zhliew@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/07 13:17:07 by leu-lee           #+#    #+#              #
-#    Updated: 2022/09/05 15:36:21 by leu-lee          ###   ########.fr        #
+#    Updated: 2022/09/05 16:24:10 by zhliew           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,7 +57,7 @@ test:
 		make && "./cub3d ./maps/map2.cub"
 
 clean:
-	@$(RM) $(OBJS_DIR)
+	@$(RM) $(OBJS_DIR) $(NAME)
 	@echo "$(RED)Removed $(NAME) .obj$(RESET)"
 
 fclean: clean
