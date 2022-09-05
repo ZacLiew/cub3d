@@ -1,7 +1,7 @@
-NO texture/1.xpm 
-SO texture/2.xpm 
-WE texture/3.xpm 
-EA texture/6.xpm 
+NO texture/1.xpm
+SO texture/2.xpm
+WE texture/3.xpm
+EA texture/6.xpm
 
 
 
@@ -10,6 +10,6 @@ F 2,22,255
 C 225,30,0
 
 11111111
-100001111           
-100W11
-111111
+10001111           
+100000E1
+11111111

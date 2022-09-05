@@ -6,7 +6,7 @@
 /*   By: leu-lee <leu-lee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 14:41:05 by zhliew            #+#    #+#             */
-/*   Updated: 2022/09/05 15:22:00 by leu-lee          ###   ########.fr       */
+/*   Updated: 2022/09/05 16:15:02 by leu-lee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ int	main(int argc, char **argv)
 {
 	t_mlx	mlx;
 
-	(void)argc;
+	if (argc != 2)
+		call_error("Wrong argument number passed to program.\n");
 	mlx.mlx = mlx_init();
 	init_cub3d(&mlx);
 	read_file(&mlx, argv);

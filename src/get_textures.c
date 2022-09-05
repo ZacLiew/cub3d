@@ -6,7 +6,7 @@
 /*   By: leu-lee <leu-lee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 16:35:22 by leu-lee           #+#    #+#             */
-/*   Updated: 2022/09/05 14:19:56 by leu-lee          ###   ########.fr       */
+/*   Updated: 2022/09/05 15:48:57 by leu-lee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,17 +80,20 @@ void	set_floor_ceiling(t_mlx *mlx, char **array)
 
 void	set_textures(t_mlx *mlx, char *line, char **array, int i)
 {
+	char	*tmp;
+
+	tmp = remove_newline(array[1]);
 	if (i < 4 && array[1] != NULL && array[2] != NULL && array[2][0] != '\n')
 		call_error("Error: Invalid chars after directional textures\n");
-	printf("|%s|\n", array[1]);
+	printf("|%s|\n", tmp);
 	if ((ft_strncmp(array[0], "NO", 3) == 0) && i == 0)
-		mlx->north = get_xpm_img(mlx, remove_newline(array[1]));
+		mlx->north = get_xpm_img(mlx, tmp);
 	else if ((ft_strncmp(array[0], "SO", 3) == 0) && i == 1)
-		mlx->south = get_xpm_img(mlx, remove_newline(array[1]));
+		mlx->south = get_xpm_img(mlx, tmp);
 	else if ((ft_strncmp(array[0], "WE", 3) == 0) && i == 2)
-		mlx->west = get_xpm_img(mlx, remove_newline(array[1]));
+		mlx->west = get_xpm_img(mlx, tmp);
 	else if ((ft_strncmp(array[0], "EA", 3) == 0) && i == 3)
-		mlx->east = get_xpm_img(mlx, remove_newline(array[1]));
+		mlx->east = get_xpm_img(mlx, tmp);
 	else if (((ft_strncmp(array[0], "F", 2) == 0) && i == 4)
 		|| ((ft_strncmp(array[0], "C", 2) == 0) && i == 5))
 	{
@@ -101,6 +104,7 @@ void	set_textures(t_mlx *mlx, char *line, char **array, int i)
 	}
 	else
 		call_error("Error: No required arguments/Not following strict order-\n");
+	free(tmp);
 }
 
 int	get_textures(t_mlx *mlx, int fd)

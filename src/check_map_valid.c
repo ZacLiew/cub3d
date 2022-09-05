@@ -6,7 +6,7 @@
 /*   By: leu-lee <leu-lee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 13:00:59 by leu-lee           #+#    #+#             */
-/*   Updated: 2022/09/05 15:25:33 by leu-lee          ###   ########.fr       */
+/*   Updated: 2022/09/05 16:13:40 by leu-lee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,19 @@ int	check_char_valid(t_mlx *mlx, char c, int i, int y)
 
 	if (c != '1' && c != '0'
 		&& c != 'N' && c != 'W'
-		&& c != 'S' && c != 'E' && c != ' ')
+		&& c != 'S' && c != 'E'
+		&& c != ' ' && c != 'D')
 		call_error("Error: Not a valid char\n");
+	if (c == 'D')
+	{
+		if (((mlx->map.board[y][i + 1] == '1')
+			&& (mlx->map.board[y][i - 1] == '1'))
+			|| ((mlx->map.board[y - 1][i] == '1')
+			&& (mlx->map.board[y + 1][i] == '1')))
+			;
+		else
+			call_error("Error: Door is not inbetween two walls");
+	}
 	if (c == 'N' || c == 'W' || c == 'S' || c == 'E')
 	{
 		mlx->player.x = (double)i + 0.5;

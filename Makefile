@@ -6,7 +6,7 @@
 #    By: leu-lee <leu-lee@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/07 13:17:07 by leu-lee           #+#    #+#              #
-#    Updated: 2022/09/05 08:53:10 by leu-lee          ###   ########.fr        #
+#    Updated: 2022/09/05 15:36:21 by leu-lee          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ INCLUDES	= -Imlx -Iincludes -Ilibft -Iget_next_line
 all: $(NAME)
 
 $(NAME): $(OBJS) $(OBJS_GNL) main.c libft/libft.a
-		@$(CCD) main.c $(OBJS) $(OBJS_GNL) $(INCLUDES) $(LIB) $(MACMLX) -o $@
+		@$(CC) main.c $(OBJS) $(OBJS_GNL) $(INCLUDES) $(LIB) $(MACMLX) -o $@
 		@echo "$(GREEN)Compiled $@ successfully $(RESET)"
 	
 libft/libft.a:
