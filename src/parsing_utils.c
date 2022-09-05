@@ -6,27 +6,25 @@
 /*   By: leu-lee <leu-lee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 17:00:38 by leu-lee           #+#    #+#             */
-/*   Updated: 2022/09/03 16:50:25 by leu-lee          ###   ########.fr       */
+/*   Updated: 2022/09/05 08:48:24 by leu-lee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-// void	check_parsed_value(t_data *data)
-// {
-// 	printf("North|%s|\n", data->tex.north);
-// 	printf("South|%s|\n", data->tex.south);
-// 	printf("West|%s|\n", data->tex.west);
-// 	printf("East|%s|\n", data->tex.east);
-// 	printf("~Ceiling~\n");
-// 	printf("Red|%d|\n", data->ceiling.red);
-// 	printf("Green|%d|\n", data->ceiling.green);
-// 	printf("Blue|%d|\n", data->ceiling.blue);
-// 	printf("~Floor~\n");
-// 	printf("Red|%d|\n", data->floor.red);
-// 	printf("Green|%d|\n", data->floor.green);
-// 	printf("Blue|%d|\n", data->floor.blue);
-// }
+char	*remove_newline(char *str)
+{
+	char	*tmp;
+
+	if (str[ft_strlen(str) - 1] == '\n')
+	{
+		tmp = ft_strndup(str, ft_strlen(str) - 1);
+		return (tmp);
+	}
+	else
+		tmp = ft_strdup(str);
+	return (tmp);
+}
 
 void	comma_to_space(char *line)
 {

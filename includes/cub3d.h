@@ -6,7 +6,7 @@
 /*   By: leu-lee <leu-lee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 14:42:16 by zhliew            #+#    #+#             */
-/*   Updated: 2022/09/03 16:36:17 by leu-lee          ###   ########.fr       */
+/*   Updated: 2022/09/05 08:48:51 by leu-lee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -166,6 +166,7 @@ int		get_textures(t_mlx *mlx, int fd);
 int		check_map_valid(t_mlx *mlx);
 void	player_direction(t_mlx *mlx, char c);
 
+char	*remove_newline(char *str);
 void	call_error(char *msg);
 void	free_str_array(char **str);
 void	comma_to_space(char *line);
