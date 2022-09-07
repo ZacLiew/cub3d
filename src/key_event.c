@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_event.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leu-lee <leu-lee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: zhliew <zhliew@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 09:28:58 by zhliew            #+#    #+#             */
-/*   Updated: 2022/09/03 15:49:41 by leu-lee          ###   ########.fr       */
+/*   Updated: 2022/09/05 16:48:03 by zhliew           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,9 +79,9 @@ int	key_pressed(int keycode, t_mlx *mlx)
 		movement(mlx, (mlx->player.dir_x / speed) * -1,
 			(mlx->player.dir_y / speed) * -1);
 	if (keycode == RIGHT)
-		rotate(mlx, ROTATE_ANGLE * -1);
-	if (keycode == LEFT)
 		rotate(mlx, ROTATE_ANGLE);
+	if (keycode == LEFT)
+		rotate(mlx, ROTATE_ANGLE * -1);
 	if (keycode == KEY_E)
 		open_close_door(mlx);
 	return (0);

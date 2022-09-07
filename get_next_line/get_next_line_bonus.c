@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: zhliew <zhliew@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/06 15:17:09 by zhliew            #+#    #+#             */
+/*   Updated: 2022/09/06 15:17:55 by zhliew           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line_bonus.h"
 
 void	freestr(char **str)
@@ -17,7 +29,7 @@ void	*ft_memset(void *b, int c, size_t len)
 	while (index < len)
 	{
 		((unsigned char *)b)[index] = c;
-		 index++;
+		index++;
 	}
 	return (b);
 }

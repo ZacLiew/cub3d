@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leu-lee <leu-lee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: zhliew <zhliew@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 14:42:16 by zhliew            #+#    #+#             */
-/*   Updated: 2022/09/05 08:48:51 by leu-lee          ###   ########.fr       */
+/*   Updated: 2022/09/06 15:00:15 by zhliew           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@
 # define RIGHT 124
 # define ESC 53
 # define ROTATE_ANGLE 0.08
-# define TEXTURE_FLOOR 1
+# define TEXTURE_FLOOR 0
 
 typedef struct s_resize
 {

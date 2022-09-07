@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   styling.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: zhliew <zhliew@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/06 15:18:20 by zhliew            #+#    #+#             */
+/*   Updated: 2022/09/06 15:18:36 by zhliew           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef STYLING_H
 # define STYLING_H
 
@@ -12,10 +24,7 @@
 # define TEL "\033[036m"
 # define WHT "\033[037m"
 # define RESET "\033[0m"
-
-
 // # define BOLD "\033[1m"
-
 # define RST  "\x1B[0m"
 # define KRED  "\x1B[31m"
 # define KGRN  "\x1B[32m"
@@ -25,8 +34,6 @@
 # define KCYN  "\x1B[36m"
 # define KWHT  "\x1B[37m"
 # define TEST  "\e[38;5;166m"
-
-
 # define BOLD "\x1B[1m"
 # define UNDL "\x1B[4m"
 
