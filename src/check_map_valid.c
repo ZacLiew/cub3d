@@ -6,7 +6,7 @@
 /*   By: leu-lee <leu-lee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 13:00:59 by leu-lee           #+#    #+#             */
-/*   Updated: 2022/09/07 08:40:12 by leu-lee          ###   ########.fr       */
+/*   Updated: 2022/09/06 19:01:21 by leu-lee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,10 @@ int	check_char_valid(t_mlx *mlx, char c, int i, int y)
 {
 	static int	dir;
 
-	if (c != '1' && c != '0' && c != 'N' && c != 'W'
-		&& c != 'S' && c != 'E' && c != ' ' && c != 'D')
+	if (c != '1' && c != '0'
+		&& c != 'N' && c != 'W'
+		&& c != 'S' && c != 'E'
+		&& c != ' ' && c != 'D')
 		call_error("Error: Not a valid char\n");
 	if (c == 'D')
 	{
@@ -41,28 +43,21 @@ int	check_char_valid(t_mlx *mlx, char c, int i, int y)
 
 void	check_inner_wall(t_mlx *mlx, int i, int y)
 {
-	if (i > 0)
+	if ((y - 1 >= 0) && (i - 1 >= 0))
 	{
-		if ((mlx->map.board[y][i - 1] != '1')
-			&& (mlx->map.board[y][i - 1] != ' '))
-			call_error("Error: Map not valid (Floor next to space)\n");
-	}
-	if (y > 0)
-	{
-		if ((mlx->map.board[y - 1][i] != '1')
-			&& (mlx->map.board[y - 1][i] != ' '))
-			call_error("Error: Map not valid (Floor next to space)\n");
-	}
-	if (i < mlx->map.col - 1)
-	{
-		if ((mlx->map.board[y][i + 1] != ' ')
-			&& (mlx->map.board[y][i + 1] != '1'))
-			call_error("Error: Map not valid (Floor next to space)\n");
-	}
-	if (y < mlx->map.row - 1)
-	{
-		if ((mlx->map.board[y + 1][i] != ' ')
-			&& (mlx->map.board[y + 1][i] != '1'))
+		if (y != (mlx->map.row - 1))
+		{
+			if ((mlx->map.board[y + 1][i] != '1')
+				&& (mlx->map.board[y + 1][i] != ' '))
+				call_error("Error: Map not valid (Floor next to space)\n");
+		}
+		if (((mlx->map.board[y][i + 1] != '1')
+			&& (mlx->map.board[y][i + 1] != ' ')
+			&& (mlx->map.board[y][i + 1] != '\0')) ||
+			((mlx->map.board[y][i - 1] != '1')
+			&& (mlx->map.board[y][i - 1] != ' ')) ||
+			((mlx->map.board[y - 1][i] != '1')
+			&& (mlx->map.board[y - 1][i] != ' ')))
 			call_error("Error: Map not valid (Floor next to space)\n");
 	}
 }
@@ -84,12 +79,18 @@ int	check_horizontal_wall(char *str)
 int	check_vertical_wall(t_mlx *mlx)
 {
 	int	i;
+	int	len;
 
 	i = 0;
+	printf("mlx->map.row|%d|\n", mlx->map.row);
 	while (i < mlx->map.row)
 	{
-		if (mlx->map.board[i][0] != '1' && mlx->map.board[i][0] != ' ')
-			call_error("Error: Map not valid (First Vertical wall)\n");
+		len = ft_strlen(mlx->map.board[i]);
+		if (*(mlx->map.board)[0] != '1' || *(mlx->map.board)[0] != ' ')
+		{
+			if (mlx->map.board[i][len - 1] != ' ')
+				call_error("Error: Map not valid (Vertical wall)\n");
+		}
 		i++;
 	}
 	return (0);

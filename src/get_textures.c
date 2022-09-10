@@ -6,7 +6,7 @@
 /*   By: leu-lee <leu-lee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 16:35:22 by leu-lee           #+#    #+#             */
-/*   Updated: 2022/09/07 08:35:31 by leu-lee          ###   ########.fr       */
+/*   Updated: 2022/09/06 18:57:41 by leu-lee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,17 @@ int	check_empty_line(char *line)
 	return (1);
 }
 
-int	check_floor_ceiling(char *line, int len, int number, int count)
+void	check_floor_ceiling(char *line, int len, int number, int count)
 {
 	int	i;
 
 	i = 0;
+	if (count == 6)
+		call_error("-Error: Too many arguments parsed-\n");
 	while (line[i] == ' ')
 		i++;
 	if (line[i] == '\n' || len == 0)
-		return (count);
+		return ;
 	if (ft_isdigit(line[i]) == 0 && line[i] != ',')
 		call_error("-Error: Invalid char parsing error-\n");
 	if (ft_isdigit(line[i]) == 1 && number == 0)
@@ -49,8 +51,7 @@ int	check_floor_ceiling(char *line, int len, int number, int count)
 	else
 		call_error("Error: Floor or ceiling parsing error\n");
 	if (len > 0)
-		count = check_floor_ceiling(line + i, len - i, number, count + 1);
-	return (count);
+		check_floor_ceiling(line + i, len - i, number, count + 1);
 }
 
 void	set_floor_ceiling(t_mlx *mlx, char **array)
@@ -95,14 +96,14 @@ void	set_textures(t_mlx *mlx, char *line, char **array, int i)
 	else if (((ft_strncmp(array[0], "F", 2) == 0) && i == 4)
 		|| ((ft_strncmp(array[0], "C", 2) == 0) && i == 5))
 	{
-		if (check_floor_ceiling(line + 1, ft_strlen(line + 1) - 1, 0, 0) != 5)
-			call_error("Wrong number of arguments returned for floor/ceiling\n");
+		check_floor_ceiling(line + 1, ft_strlen(line + 1) - 1, 0, 0);
 		comma_to_space(line);
 		array = ft_split(line, ' ');
 		set_floor_ceiling(mlx, array);
 	}
 	else
 		call_error("Error: No required arguments/Not following strict order-\n");
+	printf("exit\n");
 	free(tmp);
 }
 
@@ -122,10 +123,12 @@ int	get_textures(t_mlx *mlx, int fd)
 		if (check_empty_line(line))
 			continue ;
 		array = ft_split(line, ' ');
+		printf("line |%s|\n", line);
 		set_textures(mlx, line, array, i);
 		i++;
 		free_str_array(array);
 		free(line);
+		printf("Flags passed -> %d\n", i);
 	}
 	close(fd);
 	return (count);

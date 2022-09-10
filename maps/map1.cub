@@ -1,22 +1,18 @@
-NO texture/1.xpm
+NO          texture/2.xpm
 
 
-SO texture/2.xpm
-WE texture/3.xpm
+      SO texture/1.xpm      
+   WE    texture/3.xpm
 EA texture/6.xpm
 
 
 
 
+F 2,      22,255
+C 225,30,0
 
-F 2,22,255
-C 2,22,255
-
-1
-111       11
-11       101 
-111111111011
-  1010111011        
- 1 10000E0011
- 111110111111
- 111111111111
+11011111
+1S101111         
+101D1001
+10000001
+11111111

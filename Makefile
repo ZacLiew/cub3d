@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: zhliew <zhliew@student.42.fr>              +#+  +:+       +#+         #
+#    By: leu-lee <leu-lee@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/07 13:17:07 by leu-lee           #+#    #+#              #
-#    Updated: 2022/09/06 15:16:48 by zhliew           ###   ########.fr        #
+#    Updated: 2022/09/06 18:51:10 by leu-lee          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ INCLUDES	= -Imlx -Iincludes -Ilibft -Iget_next_line
 all: $(NAME)
 
 $(NAME): $(OBJS) $(OBJS_GNL) main.c libft/libft.a
-		@$(CC) main.c $(OBJS) $(OBJS_GNL) $(INCLUDES) $(LIB) $(MACMLX) -o $@
+		@$(CCD) main.c $(OBJS) $(OBJS_GNL) $(INCLUDES) $(LIB) $(MACMLX) -o $@
 		@echo "$(GREEN)Compiled $@ successfully $(RESET)"
 	
 libft/libft.a:
