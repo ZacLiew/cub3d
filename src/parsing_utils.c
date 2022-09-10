@@ -6,7 +6,7 @@
 /*   By: leu-lee <leu-lee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 17:00:38 by leu-lee           #+#    #+#             */
-/*   Updated: 2022/09/05 08:48:24 by leu-lee          ###   ########.fr       */
+/*   Updated: 2022/09/06 20:34:48 by leu-lee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ char	*remove_newline(char *str)
 {
 	char	*tmp;
 
+	if (!str)
+		return (NULL);
 	if (str[ft_strlen(str) - 1] == '\n')
 	{
 		tmp = ft_strndup(str, ft_strlen(str) - 1);
